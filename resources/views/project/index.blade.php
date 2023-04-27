@@ -19,6 +19,7 @@
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">type_id</th>
+                <th scope="col">technology</th>
                 <th scope="col">title</th>
                 <th scope="col">client</th>
                 <th scope="col">URL</th>
