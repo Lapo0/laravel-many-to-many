@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\Type;
+use App\Models\Technology;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Str;
@@ -49,6 +50,10 @@ class ProjectController extends Controller
         $data['slug'] = Str::slug($data['title']);
 
         $project = Project::create($data);
+
+        if(isset($data['technologies'])) {
+            $project->technologies()->attach($data['technologies']);
+        }
 
         return to_route('projects.show', $project);
     }
